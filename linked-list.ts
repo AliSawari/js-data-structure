@@ -31,8 +31,8 @@ type LinkedListType = {
 
 class LinkedList implements LinkedListType {
   length = 0;
-  head:any = null;
-  tail:any = null;
+  head:NodeType | null = null;
+  tail:NodeType | null = null;
   constructor(value?: any) {
     if (value) {
       const newNode = new NodeX(value)
