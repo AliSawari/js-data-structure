@@ -84,29 +84,21 @@ class LinkedList implements LinkedListType {
 
 
   pop(): NodeType | unknown {
-    if(!this.head) return;
-    let pointer:NodeType  = this.head;
-    let before:NodeType | null = null;
-    while(pointer.next){
-      before = pointer;
+    if (!this.head) return undefined;
+    let pointer = this.head;
+    let pre = this.head;
+    while (pointer.next) {
+      pre = pointer;
       pointer = pointer.next;
     }
-
-    if(!pointer.next){
-      if(!before) {
-        this.head = null;
-        this.tail = null;
-      } else {
-        before.next = null;
-        this.tail = before;
-      }
-      this.decrement();
-      if(this.length === 1){
-        this.head = this.tail;
-      }
-
-      return pointer || null;
+    this.tail = pre;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
     }
+    return pointer;
   }
 
   unshift(value:any): LinkedListType {
