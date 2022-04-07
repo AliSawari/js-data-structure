@@ -42,22 +42,22 @@ class LinkedList implements LinkedListType {
     }
   }
   shift(): void {
-    throw new Error("Method not implemented.");
+    
   }
   get(): void {
-    throw new Error("Method not implemented.");
+    
   }
   set(): void {
-    throw new Error("Method not implemented.");
+    
   }
   insert(): void {
-    throw new Error("Method not implemented.");
+    
   }
   remove(): void {
-    throw new Error("Method not implemented.");
+    
   }
   reverse(): void {
-    throw new Error("Method not implemented.");
+    
   }
 
   increment(): void {
