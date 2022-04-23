@@ -1,9 +1,9 @@
-type NodeType = {
+export type NodeType = {
   value: any
   next: NodeType | null
 }
 
-class NodeX implements NodeType {
+export class NodeX implements NodeType {
   value: any;
   next: NodeType | null;
   constructor(value: any) {
@@ -12,7 +12,7 @@ class NodeX implements NodeType {
   }
 }
 
-type LinkedListType = {
+export type LinkedListType = {
   length: number
   head: NodeType | null
   tail: NodeType | null
@@ -29,7 +29,7 @@ type LinkedListType = {
   reverse(): void
 }
 
-class LinkedList implements LinkedListType {
+export class LinkedList implements LinkedListType {
   length = 0;
   head:NodeType | null = null;
   tail:NodeType | null = null;
@@ -145,15 +145,3 @@ class LinkedList implements LinkedListType {
     console.log(JSON.stringify(this, null, 2))
   }
 }
-
-
-let myList = new LinkedList();
-myList.push(34);
-myList.push(548);
-myList.push("hello");
-
-myList.unshift("BEGINNING")
-
-myList.log()
-
-
