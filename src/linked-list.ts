@@ -22,7 +22,7 @@ export type LinkedListType = {
   pop(): NodeType | unknown
   shift(): NodeType | unknown
   unshift(value:any): LinkedListType
-  get(value:any): void
+  get(index:number): NodeType | unknown
   set(value:any): void
   insert(value:any): void
   remove(value:any): void
@@ -52,13 +52,22 @@ export class LinkedList implements LinkedListType {
       this.head = null;
       this.tail = null;
     }
+    first.next = null;
     this.decrement();
     return first;
   }
 
-  get() {
-    
+  get(index:number): NodeType {
+    if(!this.head || index > this.length) return undefined;
+    let pointer = this.head;
+    for (let x = 1; x < index; x++) {
+      if(pointer.next) pointer = pointer.next;
+    }
+
+    return pointer;
   }
+
+
   set() {
     
   }
