@@ -20,7 +20,7 @@ export type LinkedListType = {
   decrement(): void
   push(value:any): LinkedListType
   pop(): NodeType | unknown
-  shift(): void
+  shift(): NodeType | unknown
   unshift(value:any): LinkedListType
   get(value:any): void
   set(value:any): void
@@ -33,6 +33,7 @@ export class LinkedList implements LinkedListType {
   length = 0;
   head:NodeType | null = null;
   tail:NodeType | null = null;
+
   constructor(value?: any) {
     if (value) {
       const newNode = new NodeX(value)
@@ -41,22 +42,33 @@ export class LinkedList implements LinkedListType {
       this.increment();
     }
   }
-  shift(): void {
+
+  shift(): NodeType {
+    if (!this.head) return undefined;
+    const first = this.head;
+    if (first.next && first.next.value) {
+      this.head = first.next;
+    } else {
+      this.head = null;
+      this.tail = null;
+    }
+    this.decrement();
+    return first;
+  }
+
+  get() {
     
   }
-  get(): void {
+  set() {
     
   }
-  set(): void {
+  insert() {
     
   }
-  insert(): void {
+  remove() {
     
   }
-  remove(): void {
-    
-  }
-  reverse(): void {
+  reverse() {
     
   }
 
@@ -93,7 +105,7 @@ export class LinkedList implements LinkedListType {
     }
     this.tail = pre;
     this.tail.next = null;
-    this.length--;
+    this.decrement();
     if (this.length === 0) {
       this.head = null;
       this.tail = null;
