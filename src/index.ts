@@ -6,8 +6,6 @@ myList.push("ali");
 myList.push("reza");
 // myList.push("saeed");
 
-myList.log();
-
-const some = myList.remove(44);
+myList.reverse();
 
 myList.log();

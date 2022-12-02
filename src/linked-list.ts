@@ -91,8 +91,20 @@ export class LinkedList implements LinkedListType {
     return toBeRemoved;
   }
 
-  reverse() {
-    
+  reverse(): LinkedListType {
+    let pointer = this.head;
+    this.head = this.tail;
+    this.tail = pointer;
+    let prev: NodeType = null;
+    let next = pointer.next;
+    for(let x=0; x< this.length; x++){
+      next = pointer.next;
+      pointer.next = prev;
+      prev = pointer;
+      pointer = next;
+    }
+
+    return this;
   }
 
 
