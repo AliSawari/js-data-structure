@@ -25,7 +25,7 @@ export type LinkedListType = {
   get(index:number): NodeType | unknown
   set(value:any): void
   insert(value:any): void
-  remove(value:any): void
+  remove(value:any): NodeType | unknown
   reverse(): void
 }
 
@@ -69,17 +69,32 @@ export class LinkedList implements LinkedListType {
 
 
   set() {
-    
+
   }
+
+
   insert() {
     
   }
-  remove() {
-    
+
+  remove(index: number): NodeType {
+    if(index < 0 || index >= this.length) return undefined
+    if(index === 0) return this.shift()
+    if(index === (this.length - 1)) return this.pop()
+
+    const before = this.get(index - 1);
+    const toBeRemoved = before.next;
+
+    before.next = toBeRemoved.next;
+    toBeRemoved.next = null;
+    this.decrement();
+    return toBeRemoved;
   }
+
   reverse() {
     
   }
+
 
   increment(): void {
     this.length = this.length + 1;
@@ -104,7 +119,7 @@ export class LinkedList implements LinkedListType {
   }
 
 
-  pop(): NodeType | unknown {
+  pop(): NodeType  {
     if (!this.head) return undefined;
     let pointer = this.head;
     let pre = this.head;
