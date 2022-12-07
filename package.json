@@ -1,12 +1,9 @@
 {
   "name": "data-structure",
   "version": "1.0.0",
-  "description": "",
-  "main": "build/",
+  "description": "a practice for the Udemy Course Data Structures and Algorithms with JavaScript by Scott Barrett",
   "scripts": {
-    "start": "node .",
-    "build": "tsc",
-    "dev": "nodemon src/index.ts"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",

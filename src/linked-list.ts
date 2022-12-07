@@ -3,7 +3,7 @@ export type NodeType = {
   next: NodeType | null
 }
 
-export class NodeX implements NodeType {
+export class Node implements NodeType {
   value: any;
   next: NodeType | null;
   constructor(value: any) {
@@ -36,7 +36,7 @@ export class LinkedList implements LinkedListType {
 
   constructor(value?: any) {
     if (value) {
-      const newNode = new NodeX(value)
+      const newNode = new Node(value)
       this.head = newNode;
       this.tail = newNode;
       this.increment();
@@ -117,7 +117,7 @@ export class LinkedList implements LinkedListType {
   }
 
   push(value: any): LinkedListType {
-    const newNode = new NodeX(value);
+    const newNode = new Node(value);
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
@@ -150,7 +150,7 @@ export class LinkedList implements LinkedListType {
   }
 
   unshift(value:any): LinkedListType {
-    const newNode = new NodeX(value);
+    const newNode = new Node(value);
     if(!this.head){
       this.head = newNode;
       this.tail = newNode;
