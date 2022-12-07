@@ -4,18 +4,6 @@ export type NodeType = {
   previous: NodeType | null
 }
 
-export class Node implements NodeType {
-  value: any;
-  next: NodeType | null;
-  previous: NodeType | null;
-  constructor(value: any) {
-    this.value = value;
-    this.next = null;
-    this.previous = null;
-  }
-}
-
-
 export type DoublyLinkedListType = {
   length: number
   head: NodeType | null
@@ -31,6 +19,18 @@ export type DoublyLinkedListType = {
   insert(value:any): void
   remove(value:any): NodeType | unknown
   reverse(): void
+}
+
+
+export class Node implements NodeType {
+  value: any;
+  next: NodeType | null;
+  previous: NodeType | null;
+  constructor(value: any) {
+    this.value = value;
+    this.next = null;
+    this.previous = null;
+  }
 }
 
 
