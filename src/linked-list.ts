@@ -43,20 +43,6 @@ export class LinkedList implements LinkedListType {
     }
   }
 
-  shift(): NodeType {
-    if (!this.head) return undefined;
-    const first = this.head;
-    if (first.next && first.next.value) {
-      this.head = first.next;
-    } else {
-      this.head = null;
-      this.tail = null;
-    }
-    first.next = null;
-    this.decrement();
-    return first;
-  }
-
   get(index:number): NodeType {
     if(!this.head || index > this.length) return undefined;
     let pointer = this.head;
@@ -147,6 +133,20 @@ export class LinkedList implements LinkedListType {
       this.tail = null;
     }
     return pointer;
+  }
+
+  shift(): NodeType {
+    if (!this.head) return undefined;
+    const first = this.head;
+    if (first.next && first.next.value) {
+      this.head = first.next;
+    } else {
+      this.head = null;
+      this.tail = null;
+    }
+    first.next = null;
+    this.decrement();
+    return first;
   }
 
   unshift(value:any): LinkedListType {
