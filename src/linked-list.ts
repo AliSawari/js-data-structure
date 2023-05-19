@@ -23,8 +23,8 @@ export type LinkedListType = {
   shift(): NodeType | unknown
   unshift(value:any): LinkedListType
   get(index:number): NodeType | unknown
-  set(value:any): void
-  insert(value:any): void
+  set(index: number, value:any): boolean
+  insert(index: number, value:any): void
   remove(value:any): NodeType | unknown
   reverse(): void
 }
@@ -44,23 +44,36 @@ export class LinkedList implements LinkedListType {
   }
 
   get(index:number): NodeType {
-    if(!this.head || index > this.length) return undefined;
+    if(!this.head || index >= this.length) return undefined;
+    if(index === 0) return this.head;
+    if(index === (this.length - 1)) return this.tail;
     let pointer = this.head;
-    for (let x = 1; x < index; x++) {
+    for (let x = 0; x < index; x++) {
       if(pointer.next) pointer = pointer.next;
     }
-
     return pointer;
   }
 
 
-  set() {
-
+  set(index: number, value: any) {
+    let temp = this.get(index);
+    if(temp){
+      temp.value = value;
+      return true;
+    } else return false;
   }
 
 
-  insert() {
-    
+  insert(index:number, value:any) {
+    if(index < 0 || index > this.length) return false;
+    if(index === this.length) return this.push(value);
+    if(index === 0) return this.unshift(value);
+    const newNode = new Node(value);
+    let prev = this.get(index - 1);
+    newNode.next = prev.next;
+    prev.next = newNode;
+    this.increment();
+    return true;
   }
 
   remove(index: number): NodeType {
@@ -164,6 +177,7 @@ export class LinkedList implements LinkedListType {
 
 
   log(): void {
+    console.clear()
     console.log("Linked List Tree");
     if(!this.head){
       console.log("List is Empty!");
@@ -175,18 +189,14 @@ export class LinkedList implements LinkedListType {
     console.log("Length:", this.length);
     console.log("#######")
     let pointer = this.head;
-    while(pointer.next){
-      console.log("----")
+    for(let i = 0; i < this.length; i++){
+      console.log(i);
       console.log("value:", pointer.value);
-      console.log("next:", pointer.next.value);
+      console.log("next:", pointer.next ? pointer.next.value : undefined);
       pointer = pointer.next;
-    }
-    if(this.tail){
-      console.log("----")
-      console.log("value:", this.tail.value);
-      console.log("next:", this.tail.next);
       console.log("----")
     }
+    
   }
 
   toJson(): void {
