@@ -1,26 +1,10 @@
+import { LinkedListType } from './linked-list'
+
 export type NodeType = {
   value: any
   next: NodeType | null
   previous: NodeType | null
 }
-
-export type DoublyLinkedListType = {
-  length: number
-  head: NodeType | null
-  tail: NodeType | null
-  increment(): void
-  decrement(): void
-  push(value:any): DoublyLinkedListType
-  pop(): NodeType | unknown
-  shift(): NodeType | unknown
-  unshift(value:any): DoublyLinkedListType
-  get(index:number): NodeType | unknown
-  set(value:any): void
-  insert(value:any): void
-  remove(value:any): NodeType | unknown
-  reverse(): void
-}
-
 
 export class Node implements NodeType {
   value: any;
@@ -34,44 +18,50 @@ export class Node implements NodeType {
 }
 
 
-export class DoublyLinkedList implements DoublyLinkedListType {
-  constructor(){
-    
-  }
+export class DoublyLinkedList implements LinkedListType {
   length: number;
   head: NodeType;
   tail: NodeType;
-  increment(): void {
-    throw new Error("Method not implemented.");
+
+  constructor(value?: any) {
+    this.head = null;
+    this.tail = null;
+    if (value) {
+      const newNode = new Node(value)
+      this.head = newNode;
+      this.tail = newNode;
+      this.increment();
+    }
   }
-  decrement(): void {
-    throw new Error("Method not implemented.");
+
+  private increment(): void {
+    this.length = this.length + 1;
   }
-  push(value: any): DoublyLinkedListType {
-    throw new Error("Method not implemented.");
+
+  private decrement(): void | null {
+    if (this.length > 0) {
+      this.length = this.length - 1;
+    }
   }
-  pop(): unknown {
-    throw new Error("Method not implemented.");
+
+
+  set(index: number, value: any) {
+    let temp = this.get(index);
+    if (temp) {
+      temp.value = value;
+      return true;
+    } else return false;
   }
-  shift(): unknown {
-    throw new Error("Method not implemented.");
+
+  get(index: number): NodeType {
+    if (!this.head || index >= this.length) return undefined;
+    if (index === 0) return this.head;
+    if (index === (this.length - 1)) return this.tail;
+    let pointer = this.head;
+    for (let x = 0; x < index; x++) {
+      if (pointer.next) pointer = pointer.next;
+    }
+    return pointer;
   }
-  unshift(value: any): DoublyLinkedListType {
-    throw new Error("Method not implemented.");
-  }
-  get(index: number): unknown {
-    throw new Error("Method not implemented.");
-  }
-  set(value: any): void {
-    throw new Error("Method not implemented.");
-  }
-  insert(value: any): void {
-    throw new Error("Method not implemented.");
-  }
-  remove(value: any): unknown {
-    throw new Error("Method not implemented.");
-  }
-  reverse(): void {
-    throw new Error("Method not implemented.");
-  }
+
 }
