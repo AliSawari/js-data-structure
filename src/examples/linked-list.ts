@@ -8,6 +8,6 @@ myLinkedList.push("Mosa")
 myLinkedList.push("Mohammad")
 myLinkedList.push("Taher")
 myLinkedList.push("Jesus")
-
+myLinkedList.pop();
 myLinkedList.insert(7, "Jafar")
 myLinkedList.log()

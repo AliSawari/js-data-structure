@@ -16,8 +16,6 @@ export type LinkedListType = {
   length: number
   head: NodeType | null
   tail: NodeType | null
-  increment(): void
-  decrement(): void
   push(value:any): LinkedListType
   pop(): NodeType | unknown
   shift(): NodeType | unknown
@@ -107,12 +105,14 @@ export class LinkedList implements LinkedListType {
   }
 
 
-  increment(): void {
+  private increment(): void {
     this.length = this.length + 1;
   }
 
-  decrement(): void {
-    this.length = this.length - 1;
+  private decrement(): void | null {
+    if (this.length > 0) {
+      this.length = this.length - 1;
+    }
   }
 
   push(value: any): LinkedListType {
@@ -190,7 +190,7 @@ export class LinkedList implements LinkedListType {
     console.log("#######")
     let pointer = this.head;
     for(let i = 0; i < this.length; i++){
-      console.log(i);
+      console.log("~",i);
       console.log("value:", pointer.value);
       console.log("next:", pointer.next ? pointer.next.value : undefined);
       pointer = pointer.next;
