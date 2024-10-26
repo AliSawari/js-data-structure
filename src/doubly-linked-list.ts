@@ -38,7 +38,7 @@ export class DoublyLinkedList implements LinkedListType {
     this.length = this.length + 1;
   }
 
-  private decrement(): void | null {
+  private decrement(): void {
     if (this.length > 0) {
       this.length = this.length - 1;
     }
@@ -81,6 +81,7 @@ export class DoublyLinkedList implements LinkedListType {
       this.head = newNode;
       this.tail = newNode;
     } else {
+      newNode.previous = this.tail;
       this.tail.next = newNode;
       this.tail = newNode;
     }
@@ -100,8 +101,8 @@ export class DoublyLinkedList implements LinkedListType {
       this.tail = null;
     } else {
       pointer = this.tail;
-      this.tail = pointer.previous;
-      this.tail.next = null;
+      this.tail.previous.next = null;
+      this.tail = this.tail.previous;
     }
     pointer.next = null;
     pointer.previous = null;
