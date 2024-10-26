@@ -1,1 +1,1 @@
-import './linked-list';
+import './*.ts';

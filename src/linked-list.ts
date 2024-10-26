@@ -25,6 +25,7 @@ export type LinkedListType = {
   insert(index: number, value:any): void
   remove(value:any): NodeType | unknown
   reverse(): void
+  log(): void
 }
 
 export class LinkedList implements LinkedListType {
