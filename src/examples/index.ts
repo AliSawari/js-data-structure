@@ -1,2 +1,1 @@
-// import './linked-list'
-import './doubly-linked-list'
+// import from examples into this file to see the results for each example

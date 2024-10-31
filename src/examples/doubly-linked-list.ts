@@ -1,7 +1,6 @@
-import { DoublyLinkedList } from '../doubly-linked-list';
+import { DoublyLinkedList } from '@src/linked-lists/doubly-linked-list'
 
 const myDoubly = new DoublyLinkedList();
-
 
 myDoubly.push("Reza")
 myDoubly.push("Hamid")
@@ -10,4 +9,4 @@ myDoubly.push("Mohammad")
 myDoubly.push("Taher")
 myDoubly.push("Jesus")
 myDoubly.pop();
-myDoubly.log()
+myDoubly.log();

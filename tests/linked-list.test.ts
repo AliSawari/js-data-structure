@@ -1,4 +1,4 @@
-import { LinkedList } from "../linked-list";
+import { LinkedList } from "../src/linked-lists/linked-list";
 
 describe("Testing LinkedLists", () => {
 

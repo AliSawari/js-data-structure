@@ -1,4 +1,4 @@
-import { NodeType, Node } from './linked-list';
+import { NodeType, Node } from '../linked-lists/linked-list';
 
 export type StackType = {
   length: number;
