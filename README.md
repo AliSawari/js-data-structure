@@ -4,6 +4,15 @@ a simple code example for the practices related to Udemy Course
 
 I used TypeScript instead of JavaScript for better types and interfaces
 
+
+
+## Data Structure with TypeScript
+
+the benefits of using the Type system from TypeScript is the ability to create new types alongside the class
+definitions, which allows you to implement the Data Structure types easily and correctly. 
+
+
+
 ### Run 
 
 build
