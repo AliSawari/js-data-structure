@@ -29,3 +29,5 @@ Test
 ```bash
 npm test
 ```
+
+Testing GPG key
