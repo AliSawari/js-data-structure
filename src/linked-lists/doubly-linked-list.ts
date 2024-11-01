@@ -13,7 +13,7 @@ export class Node implements NodeType {
   constructor(value: any) {
     this.value = value;
     this.next = null;
-    this.previous = null;     
+    this.previous = null;
   }
 }
 
@@ -59,18 +59,18 @@ export class DoublyLinkedList implements LinkedListType {
     let pointer: NodeType | null;
 
     let middle = Math.ceil(this.length / 2);
-    if((index+1) <= middle) {
+    if ((index + 1) <= middle) {
       pointer = this.head;
       for (let x = 0; x < index; x++) {
         if (pointer.next) pointer = pointer.next;
       }
     } else {
       pointer = this.tail;
-      for(let x = (this.length-1); x > index; x--){
+      for (let x = (this.length - 1); x > index; x--) {
         if (pointer.previous) pointer = pointer.previous;
       }
     }
-    
+
     return pointer;
   }
 
@@ -91,7 +91,7 @@ export class DoublyLinkedList implements LinkedListType {
   }
 
 
-  
+
   pop(): NodeType | null {
     if (!this.head) return null;
     let pointer: NodeType;
@@ -133,7 +133,7 @@ export class DoublyLinkedList implements LinkedListType {
   log(): void {
     console.clear()
     console.log("Linked List Tree");
-    if(!this.head){
+    if (!this.head) {
       console.log("List is Empty!");
       console.log("Length: ", this.length);
       return;
@@ -143,13 +143,13 @@ export class DoublyLinkedList implements LinkedListType {
     console.log("Length:", this.length);
     console.log("#######")
     let pointer = this.head;
-    for(let i = 0; i < this.length; i++){
-      console.log("~",i);
+    for (let i = 0; i < this.length; i++) {
+      console.log("~", i);
       console.log("value:", pointer.value);
       console.log("next:", pointer.next ? pointer.next.value : undefined);
       pointer = pointer.next;
       console.log("----")
     }
-    
+
   }
 }
