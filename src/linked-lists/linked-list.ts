@@ -131,8 +131,8 @@ export class LinkedList implements LinkedListType {
   }
 
 
-  pop(): NodeType  {
-    if (!this.head) return undefined;
+  pop(): NodeType | null {
+    if (!this.head) return null;
     let pointer = this.head;
     let pre = this.head;
     while (pointer.next) {
