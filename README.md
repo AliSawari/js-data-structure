@@ -1,17 +1,16 @@
-# Data Structure and Algorithms - JavaScript [![Build & Test](https://github.com/AliSawari/js-data-structure/actions/workflows/node.js.yml/badge.svg)](https://github.com/AliSawari/js-data-structure/actions/workflows/node.js.yml)
+# Data Structure and Algorithms - TypeScript [![Build & Test](https://github.com/AliSawari/js-data-structure/actions/workflows/node.js.yml/badge.svg)](https://github.com/AliSawari/js-data-structure/actions/workflows/node.js.yml)
 
-a simple code example for the practices related to Udemy Course 
+**Implemented most useful and important Data Structures used in Software Development, All With TypeScript 🌟** 
 
-I used TypeScript instead of JavaScript for better types and interfaces
-
-
+## Table of Contents
+- [Introduction](#Data)
 
 ## Data Structure with TypeScript
 
 the benefits of using the Type system from TypeScript is the ability to create new types alongside the class
 definitions, which allows you to implement the Data Structure types easily and correctly. 
 
-
+asd
 
 ### Run 
 
