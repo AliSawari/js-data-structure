@@ -3,7 +3,8 @@
 **Implemented most useful and important Data Structures used in Software Development, All With TypeScript 🌟** 
 
 ## Table of Contents
-- [Introduction](#Data)
+- [Introduction](#data-structure-with-typeScript)
+- [Examples](#data-structure-with-typeScript)
 
 ## Data Structure with TypeScript
 
