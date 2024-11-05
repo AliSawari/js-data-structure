@@ -18,7 +18,9 @@ definitions, which allows you to implement the Data Structure types easily and c
 - [ ] Queues
 - [ ] Trees
 
-## Linked Lists
+
+## Examples
+
 
 
 ### Run 
@@ -33,9 +35,6 @@ Run
 npm start
 ```
 
-Test
-```bash
-npm test
-```
 
-Testing GPG key
+### Testing
+
