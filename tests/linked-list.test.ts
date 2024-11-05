@@ -1,4 +1,5 @@
-import { LinkedList, LinkedListType, Node } from "../src/linked-lists/linked-list";
+import { LinkedList, Node } from "../src/linked-lists/linked-list";
+import { LinkedListType } from "../src/types"
 
 describe("Testing LinkedLists", () => {
 
