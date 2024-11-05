@@ -9,9 +9,17 @@
 ## Data Structure with TypeScript
 
 the benefits of using the Type system from TypeScript is the ability to create new types alongside the class
-definitions, which allows you to implement the Data Structure types easily and correctly. 
+definitions, which allows you to implement the Data Structure types easily and correctly.
 
-asd
+## List of Implemented Data Structures 
+- [x] Linked Lists
+- [x] Doubly Linked Lists
+- [ ] Stacks
+- [ ] Queues
+- [ ] Trees
+
+## Linked Lists
+
 
 ### Run 
 
