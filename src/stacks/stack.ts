@@ -1,4 +1,12 @@
-import { NodeType, Node } from '../linked-lists/linked-list';
+import { NodeType } from "@src/types";
+
+export class Node implements NodeType {
+  value: any;
+  next?: NodeType | null;
+  constructor(value:any) {
+    this.value = value;
+  }
+}
 
 export type StackType = {
   length: number;
