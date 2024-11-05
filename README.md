@@ -9,7 +9,6 @@
 
 ## List of Implemented Data Structures 
 - [x] Linked Lists
-- [x] Doubly Linked Lists
 - [ ] Stacks
 - [ ] Queues
 - [ ] Trees
