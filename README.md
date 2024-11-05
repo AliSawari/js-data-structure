@@ -4,7 +4,7 @@
 
 ## Table of Contents
 - [Introduction](#data-structure-with-typeScript)
-- [Examples](#data-structure-with-typeScript)
+- [Examples](#examples)
 
 ## Data Structure with TypeScript
 
