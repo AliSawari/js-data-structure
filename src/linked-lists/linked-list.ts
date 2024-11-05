@@ -1,7 +1,4 @@
-export type NodeType = {
-  value: any
-  next: NodeType | null
-}
+import { LinkedListType, NodeType } from "@src/types"
 
 export class Node implements NodeType {
   value: any;
@@ -12,21 +9,6 @@ export class Node implements NodeType {
   }
 }
 
-export type LinkedListType = {
-  length: number
-  head: NodeType | null
-  tail: NodeType | null
-  push(value:any): LinkedListType
-  pop(): NodeType | unknown
-  shift(): NodeType | unknown
-  unshift(value:any): LinkedListType
-  get(index:number): NodeType | unknown
-  set(index: number, value:any): boolean
-  insert(index: number, value:any): void
-  remove(value:any): NodeType | unknown
-  reverse(): void
-  log(): void
-}
 
 export class LinkedList implements LinkedListType {
   length = 0;

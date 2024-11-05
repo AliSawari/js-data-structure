@@ -1,10 +1,4 @@
-import { LinkedListType } from './linked-list'
-
-export type NodeType = {
-  value: any
-  next: NodeType | null
-  previous: NodeType | null
-}
+import { LinkedListType, NodeType } from "@src/types"
 
 export class Node implements NodeType {
   value: any;
