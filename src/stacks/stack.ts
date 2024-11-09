@@ -16,7 +16,6 @@ export type StackType = {
 export class Stack implements StackType {
   length: number = 0;
   top: NodeType | null;
-  static counter: number;
   constructor() {}
 
   private increment(): void {
@@ -35,8 +34,8 @@ export class Stack implements StackType {
     if(this.length > 0){
       node.next = this.top;
       this.top = node;
-      this.increment();
     }
+    this.increment();
   }
 
   pop(): NodeType | null {
@@ -47,8 +46,7 @@ export class Stack implements StackType {
         this.decrement();
         pointer.next = null;
         return pointer;
-      }
-      else {
+      } else {
         this.top = pointer.next;
         pointer.next = null;
         this.decrement();
