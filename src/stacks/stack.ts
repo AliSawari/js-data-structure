@@ -38,4 +38,22 @@ export class Stack implements StackType {
       this.increment();
     }
   }
+
+  pop(): NodeType | null {
+    if (this.length > 0) {
+      let pointer = this.top;
+      if (this.length == 1) {
+        this.top = null;
+        this.decrement();
+        pointer.next = null;
+        return pointer;
+      }
+      else {
+        this.top = pointer.next;
+        pointer.next = null;
+        this.decrement();
+        return pointer;
+      }
+    } else return null;
+  }
 }
