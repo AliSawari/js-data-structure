@@ -9,7 +9,9 @@
 
 ## List of Implemented Data Structures 
 - [x] Linked Lists
-- [ ] Stacks
+    1. Simple Linked List
+    2. Doubly Linked Lists
+- [x] Stacks
 - [ ] Queues
 - [ ] Trees
 
@@ -64,3 +66,14 @@ npm start
 
 ### Testing
 
+Run tests with `npm test`.
+
+Each Test file is related to one data structure(each file for subgroups)
+the goal of the unit testing files is to assert the correctness of the implemented Data Structure. you can find tests in the [tests](./tests/) Directory.
+
+### License
+
+This repo is under MIT License
+
+
+Happy Hacking 🥷
