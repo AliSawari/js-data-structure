@@ -13,7 +13,7 @@
   1. Simple Linked List
   2. Doubly Linked Lists
 - [x] Stacks
-- [ ] Queues
+- [x] Queues
 - [ ] Trees
 
 ## Data Structure with TypeScript
