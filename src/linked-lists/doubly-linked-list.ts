@@ -106,20 +106,82 @@ export class DoublyLinkedList implements LinkedListType {
 
 
 
-  shift(): NodeType | unknown {
-    throw new Error('Method not implemented.')
+  shift(): NodeType {
+    if (!this.head) return undefined;
+    const first = this.head;
+    if (first.next && first.next.value) {
+      this.head = first.next;
+    } else {
+      this.head = null;
+      this.tail = null;
+    }
+    this.head.previous = null;
+    first.next = null;
+    this.decrement();
+    return first;
   }
+
+
   unshift(value: any): LinkedListType {
-    throw new Error('Method not implemented.')
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.previous = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.increment()
+    return this;
   }
-  insert(index: number, value: any): void {
-    throw new Error('Method not implemented.')
+
+
+  insert(index: number, value: any) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return this.push(value);
+    if (index === 0) return this.unshift(value);
+    const newNode = new Node(value);
+    let prev = this.get(index - 1);
+    prev.next.previous = newNode;
+    newNode.next = prev.next;
+    newNode.previous = prev;
+    prev.next = newNode;
+    this.increment();
+    return true;
   }
-  remove(value: any): NodeType | unknown {
-    throw new Error('Method not implemented.')
+
+  remove(index: number): NodeType {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === 0) return this.shift();
+    if (index === (this.length - 1)) return this.pop();
+
+    const before = this.get(index - 1);
+    const toBeRemoved = before.next;
+    const after = toBeRemoved.next;
+
+    before.next = after;
+    after.previous = before;
+    toBeRemoved.next = null;
+    toBeRemoved.previous = null;
+    this.decrement();
+    return toBeRemoved;
   }
+
+
   reverse(): void {
-    throw new Error('Method not implemented.')
+    if (this.length < 2) return null;
+    let head = this.head;
+    let pointer = this.tail;
+    this.head = pointer;
+    this.tail = head;
+    let prev: NodeType;
+    for (let x = 0; x < this.length; x++) {
+      pointer.next = pointer?.previous;
+      pointer.previous = prev;
+      prev = pointer;
+      pointer = pointer?.next;
+    }
   }
 
 
@@ -135,14 +197,15 @@ export class DoublyLinkedList implements LinkedListType {
     console.log("Head:", this.head.value);
     console.log("Tail:", this.tail.value);
     console.log("Length:", this.length);
-    console.log("#######")
+    console.log("#######");
     let pointer = this.head;
     for (let i = 0; i < this.length; i++) {
       console.log("~", i);
       console.log("value:", pointer.value);
       console.log("next:", pointer.next ? pointer.next.value : undefined);
+      console.log("prev:", pointer.previous ? pointer.previous.value : undefined);
       pointer = pointer.next;
-      console.log("----")
+      console.log("----");
     }
 
   }
