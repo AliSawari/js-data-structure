@@ -1,22 +1,18 @@
 import { NodeType } from "@src/types";
+import { StackType } from "@src/types/stack";
 
 export class Node implements NodeType {
   value: any;
   next?: NodeType | null;
-  constructor(value:any) {
+  constructor(value: any) {
     this.value = value;
   }
-}
-
-export type StackType = {
-  length: number;
-  top: NodeType | null;
 }
 
 export class Stack implements StackType {
   length: number = 0;
   top: NodeType | null;
-  constructor() {}
+  constructor() { }
 
   private increment(): void {
     this.length = this.length + 1;
@@ -28,10 +24,10 @@ export class Stack implements StackType {
     }
   }
 
-  push(value:any){
+  push(value: any) {
     const node = new Node(value);
-    if(this.length == 0) this.top = node;
-    if(this.length > 0){
+    if (this.length == 0) this.top = node;
+    if (this.length > 0) {
       node.next = this.top;
       this.top = node;
     }
