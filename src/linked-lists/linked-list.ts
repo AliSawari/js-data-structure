@@ -12,8 +12,8 @@ export class Node implements NodeType {
 
 export class LinkedList implements LinkedListType {
   length = 0;
-  head:NodeType | null = null;
-  tail:NodeType | null = null;
+  head: NodeType | null = null;
+  tail: NodeType | null = null;
 
   constructor(value?: any) {
     if (value) {
@@ -24,13 +24,13 @@ export class LinkedList implements LinkedListType {
     }
   }
 
-  get(index:number): NodeType {
-    if(!this.head || index >= this.length) return undefined;
-    if(index === 0) return this.head;
-    if(index === (this.length - 1)) return this.tail;
+  get(index: number): NodeType {
+    if (!this.head || index >= this.length) return undefined;
+    if (index === 0) return this.head;
+    if (index === (this.length - 1)) return this.tail;
     let pointer = this.head;
     for (let x = 0; x < index; x++) {
-      if(pointer.next) pointer = pointer.next;
+      if (pointer.next) pointer = pointer.next;
     }
     return pointer;
   }
@@ -38,17 +38,17 @@ export class LinkedList implements LinkedListType {
 
   set(index: number, value: any) {
     let temp = this.get(index);
-    if(temp){
+    if (temp) {
       temp.value = value;
       return true;
     } else return false;
   }
 
 
-  insert(index:number, value:any) {
-    if(index < 0 || index > this.length) return false;
-    if(index === this.length) return this.push(value);
-    if(index === 0) return this.unshift(value);
+  insert(index: number, value: any) {
+    if (index < 0 || index > this.length) return false;
+    if (index === this.length) return this.push(value);
+    if (index === 0) return this.unshift(value);
     const newNode = new Node(value);
     let prev = this.get(index - 1);
     newNode.next = prev.next;
@@ -58,9 +58,9 @@ export class LinkedList implements LinkedListType {
   }
 
   remove(index: number): NodeType {
-    if(index < 0 || index >= this.length) return undefined
-    if(index === 0) return this.shift()
-    if(index === (this.length - 1)) return this.pop()
+    if (index < 0 || index >= this.length) return undefined
+    if (index === 0) return this.shift()
+    if (index === (this.length - 1)) return this.pop()
 
     const before = this.get(index - 1);
     const toBeRemoved = before.next;
@@ -77,7 +77,7 @@ export class LinkedList implements LinkedListType {
     this.tail = pointer;
     let prev: NodeType = null;
     let next = pointer.next;
-    for(let x=0; x< this.length; x++){
+    for (let x = 0; x < this.length; x++) {
       next = pointer.next;
       pointer.next = prev;
       prev = pointer;
@@ -145,9 +145,9 @@ export class LinkedList implements LinkedListType {
     return first;
   }
 
-  unshift(value:any): LinkedListType {
+  unshift(value: any): LinkedListType {
     const newNode = new Node(value);
-    if(!this.head){
+    if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
     } else {
@@ -162,7 +162,7 @@ export class LinkedList implements LinkedListType {
   log(): void {
     console.clear()
     console.log("Linked List Tree");
-    if(!this.head){
+    if (!this.head) {
       console.log("List is Empty!");
       console.log("Length: ", this.length);
       return;
@@ -172,14 +172,14 @@ export class LinkedList implements LinkedListType {
     console.log("Length:", this.length);
     console.log("#######")
     let pointer = this.head;
-    for(let i = 0; i < this.length; i++){
-      console.log("~",i);
+    for (let i = 0; i < this.length; i++) {
+      console.log("~", i);
       console.log("value:", pointer.value);
       console.log("next:", pointer.next ? pointer.next.value : undefined);
       pointer = pointer.next;
       console.log("----")
     }
-    
+
   }
 
   toJson(): void {
