@@ -34,9 +34,12 @@ import { Stack } from "../stacks/stack";
   myDoubly.push("Taher")
   myDoubly.push("Jesus")
   myDoubly.pop();
+  myDoubly.shift();
+  myDoubly.unshift("Kamal");
+  myDoubly.reverse();
   myDoubly.log();
 
-});
+})();
 
 // Stacks
 
