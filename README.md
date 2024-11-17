@@ -48,30 +48,19 @@ type LinkedListType = {
 
 you can see that each property or method has a declared type. the `value` of a linked list however can be different, thats why `any` would make sense. A Generic type will be implemented soon.
 
-### Run
+### Run 
 
-build
+You can run the example and testing files with this command:
+
+
+```bash
+npm run examples
+```
+
+To compile the project, simply run:
 
 ```bash
 npm run build
-```
-
-Run
-
-```bash
-npm start
-```
-
-Dev
-
-```bash
-npm run dev
-```
-
-Dev + Watch
-
-```bash
-npm run dev:watch
 ```
 
 ### Testing
